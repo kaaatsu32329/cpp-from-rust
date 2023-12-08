@@ -5,6 +5,6 @@ fn main() {
         .compile("cxxbridge-demo");
 
     println!("cargo:rerun-if-changed=src/main.rs");
-    println!("cargo:rerun-if-changed=src/print_hello.cc");
-    println!("cargo:rerun-if-changed=include/print_hello.h");
+    println!("cargo:rerun-if-changed=src/print_hello.cpp");
+    println!("cargo:rerun-if-changed=include/print_hello.hpp");
 }
