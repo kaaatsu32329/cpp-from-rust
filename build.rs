@@ -1,8 +1,10 @@
 fn main() {
-    cc::Build::new()
-        .cpp(true)
-        .files(vec!["src/print_hello.cpp"])
-        .compile("cpp_from_rust");
+    cxx_build::bridge("src/main.rs")
+        .file("src/print_hello.cpp")
+        .flag_if_supported("-std=c++20")
+        .compile("cxxbridge-demo");
 
-    println!("cargo:rerun-if-changed=src/*.cpp")
+    println!("cargo:rerun-if-changed=src/main.rs");
+    println!("cargo:rerun-if-changed=src/print_hello.cc");
+    println!("cargo:rerun-if-changed=include/print_hello.h");
 }

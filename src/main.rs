@@ -1,11 +1,12 @@
-#![feature(extern_types)]
+#[cxx::bridge]
+mod ffi {
+    unsafe extern "C++" {
+        include!("cpp-from-rust/include/print_hello.hpp");
 
-extern "C" {
-    fn print_hello();
+        fn print_hello();
+    }
 }
 
 fn main() {
-    unsafe {
-        print_hello();
-    }
+    ffi::print_hello();
 }

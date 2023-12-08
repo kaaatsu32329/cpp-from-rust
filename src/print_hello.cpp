@@ -1,11 +1,5 @@
+#include "cpp-from-rust/include/print_hello.hpp"
+#include "cpp-from-rust/src/main.rs.h"
 #include <cstdio>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-auto print_hello() -> void { printf("Hello, World!\n"); }
-
-#ifdef __cplusplus
-}
-#endif
+void print_hello() { printf("Hello, World!\n"); }
